@@ -1,12 +1,14 @@
 import random
 from termcolor import colored
+from art import *
+
 
 allWords = open('wordlist').read().splitlines()
 theWord = random.choice(allWords)
-print(theWord)
 inWord = "0"
 
-#print(colored('hello', 'red'), colored('world', 'green'))
+print(colored(text2art("Wordle"), 'green'))
+
 
 # 1 = Not in word
 # 2 = in word not right place
@@ -42,3 +44,5 @@ while inWord != theWord:
 #  print(number0)
 
 #https://gist.github.com/cfreshman/a03ef2cba789d8cf00c08f767e0fad7b
+
+#https://pypi.org/project/termcolor/
