@@ -38,11 +38,3 @@ while inWord != theWord:
     print(coolColoredWords(ltrcorrect0, 0, inWord), coolColoredWords(ltrcorrect1, 1, inWord),     coolColoredWords(ltrcorrect2, 2, inWord),     coolColoredWords(ltrcorrect3, 3, inWord),     coolColoredWords(ltrcorrect4, 4, inWord) )
   else:
     print("thats not the right length")
-#https://stackoverflow.com/questions/5036700/how-can-you-dynamically-create-variables
-#for i in range(2):
-#  exec(f"number{i} = {1}")
-#  print(number0)
-
-#https://gist.github.com/cfreshman/a03ef2cba789d8cf00c08f767e0fad7b
-
-#https://pypi.org/project/termcolor/
