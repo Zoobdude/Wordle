@@ -8,4 +8,4 @@ https://pypi.org/project/art/ - pip install art
 
 # Credits
 For wordle wordlist:
-https://gist.github.com/cfreshman/a03ef2cba789d8cf00c08f767e0fad7b
+https://gist.github.com/cfreshman/a7b776506c73284511034e63af1017ee
