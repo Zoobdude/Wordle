@@ -2,10 +2,13 @@ import random
 from termcolor import colored
 from art import *
 import os
+from replit import db
+import time
 
 
 allWords = open('wordlist').read().splitlines()
 theWord = random.choice(allWords)
+allWords = ""
 inWord = "0"
 allText = []
 
@@ -60,3 +63,5 @@ while inWord != theWord:
     
   else:
     print("thats not the right length")
+    time.sleep(1)
+    allTextOutput()
