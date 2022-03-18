@@ -5,13 +5,19 @@ import os
 from replit import db
 import time
 
-
+#-----------------------------------------------------
+#Picks random word from file
 allWords = open('wordlist').read().splitlines()
 theWord = random.choice(allWords)
+#-----------------------------------------------------
+#Dels extra rubbish on variable
 allWords = ""
+#-----------------------------------------------------
+#Sets up list and variable
 inWord = "0"
 allText = []
-
+#-----------------------------------------------------
+#Removes the input line
 def allTextPrint(inputStuff):
   global allText
   allText.append(inputStuff)
@@ -19,11 +25,18 @@ def allTextOutput():
   os.system('clear')
   for i in allText:
     for x in i:
-      print(x,end='')
+      print(x,end='')   
+#-----------------------------------------------------
+#converts time for timer
+def time_convert(sec):
+  mins = sec // 60
+  sec = sec % 60
+  hours = mins // 60
+  mins = mins % 60
+  print("Time Lapsed = {0}:{1}:{2}".format(int(hours),int(mins),sec))
 
 allTextPrint(colored(text2art("Wordle"), 'green'))
 allTextOutput()
-
 #-----------------------------------------------------------
 # Converts numbers to the coloured letters:
 # 1 = Not in word
@@ -41,7 +54,7 @@ def coolColoredWords(ltrcorrectNum, i, inWord):
    print("somethin be broken")
 
 #----------------------------------------------------------
-
+#Actual program
 while inWord != theWord:
   #guess input
   inWord = input("\nEnter your word: ")
@@ -56,12 +69,12 @@ while inWord != theWord:
           exec(f"ltrcorrect{i} = 2")
         else:  
           exec(f"ltrcorrect{i} = 1")
-    #calls subroutine to covert numbers to coloured leters
-    
+    #calls subroutine to covert numbers to coloured leters and sends it to printer subroutine
     allTextPrint([coolColoredWords(ltrcorrect0, 0, inWord), coolColoredWords(ltrcorrect1, 1, inWord),     coolColoredWords(ltrcorrect2, 2, inWord),     coolColoredWords(ltrcorrect3, 3, inWord),     coolColoredWords(ltrcorrect4, 4, inWord),'\n'])
     allTextOutput()
     
   else:
+    #If the word is not the correct length
     print("thats not the right length")
     time.sleep(1)
     allTextOutput()
