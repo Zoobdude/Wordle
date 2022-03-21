@@ -13,6 +13,7 @@ theWord = random.choice(allWords)
 #Dels extra rubbish on variable
 allWords = ""
 #-----------------------------------------------------
+okGuess = open("Wag").read().splitlines()
 #Sets up list and variable
 inWord = "0"
 allText = []
@@ -57,23 +58,28 @@ def coolColoredWords(ltrcorrectNum, i, inWord):
 #----------------------------------------------------------
 #Actual program
 while inWord != theWord:
-  #guess input
+    #guess input
   inWord = input("\nEnter your word: ")
   if len(inWord) == 5:
     #checks guess length
-    for i in range(5):
+    if inWord in okGuess:
+      #checks if word is on list (a real word)
+      for i in range(5):
       #checks which letters are correct and gives them numbers
-      if inWord[i] == theWord[i]:
-       exec(f"ltrcorrect{i} = 3")
-      else:
-        if inWord[i] in theWord:
-          exec(f"ltrcorrect{i} = 2")
-        else:  
-          exec(f"ltrcorrect{i} = 1")
+        if inWord[i] == theWord[i]:
+         exec(f"ltrcorrect{i} = 3")
+        else:
+          if inWord[i] in theWord:
+            exec(f"ltrcorrect{i} = 2")
+          else:  
+            exec(f"ltrcorrect{i} = 1")
     #calls subroutine to covert numbers to coloured leters and sends it to printer subroutine
-    allTextPrint([coolColoredWords(ltrcorrect0, 0, inWord), coolColoredWords(ltrcorrect1, 1, inWord),     coolColoredWords(ltrcorrect2, 2, inWord),     coolColoredWords(ltrcorrect3, 3, inWord),     coolColoredWords(ltrcorrect4, 4, inWord),'\n'])
+      allTextPrint([coolColoredWords(ltrcorrect0, 0, inWord), coolColoredWords(ltrcorrect1, 1, inWord),     coolColoredWords(ltrcorrect2, 2, inWord),     coolColoredWords(ltrcorrect3, 3, inWord),     coolColoredWords(ltrcorrect4, 4, inWord),'\n'])
+      allTextOutput()
+    else:
+      print("not on wordlist")
+      time.sleep(1)
     allTextOutput()
-    
   else:
     #If the word is not the correct length
     print("thats not the right length")
