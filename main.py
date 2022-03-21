@@ -29,8 +29,7 @@ def allTextOutput():
       print(x,end='')   
 #-----------------------------------------------------
 #timer
-#input("Press Enter to start")
-#start_time = time.time()
+start_time = time.time()
 #input("Press Enter to stop")
 #end_time = time.time()
 #time_lapsed = end_time - start_time
@@ -85,3 +84,6 @@ while inWord != theWord:
     print("thats not the right length")
     time.sleep(1)
     allTextOutput()
+end_time = time.time()
+time_lapsed = end_time - start_time
+print(time_lapsed)
