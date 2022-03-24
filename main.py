@@ -87,7 +87,7 @@ while inWord != theWord:
     allTextOutput()
 endTime = time.time()
 timeLapsed = endTime - startTime
-print("You did it in", str(time_lapsed) +"s")
+print("You did it in", str(timeLapsed) +"s")
 
 if highScoreTime > timeLapsed:
   db["hS"] = timeLapsed
